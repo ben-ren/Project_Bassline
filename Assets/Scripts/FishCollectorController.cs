@@ -21,7 +21,7 @@ public class FishCollectorController : MonoBehaviour
         if (other.gameObject.CompareTag("Fish"))
         {
             fishScore = AddScore(other.GetComponent<FishAIController>().scoreValue);
-            Destroy(other.gameObject, .5f);
+            Destroy(other.gameObject, .1f);
         }
     }
 }

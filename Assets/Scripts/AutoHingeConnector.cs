@@ -19,7 +19,7 @@ public class AutoHingeConnector : MonoBehaviour
     {
         child = GetComponentsInChildren<Transform>();
         if (LockFirstChild) {
-            SetChild(child[1]);
+            SetChild(child[0]);
         }
 
         for (int i = 2; i < child.Length; i++)
