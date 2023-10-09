@@ -24,8 +24,11 @@ public class ReelHook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateXPos();
-        HookReelCycle();
+        if (!UI_Controller.gamePaused)
+        {
+            UpdateXPos();
+            HookReelCycle();
+        }
     }
 
     void UpdateXPos()

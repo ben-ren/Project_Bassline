@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FishGenerator : MonoBehaviour
 {
-    public GameObject[] fishTypes;
-    public int FishTotal;
-    public float spawnRate;
+    public GameObject[] fishTypes;  //Control in settings
+    public int FishTotal;           //Control in settings
+    public float spawnRate;         //Control in Settings
     
     private int[] fish_y_pos = {0, -2, -3, -4};
     private bool timeUp;
@@ -16,7 +16,8 @@ public class FishGenerator : MonoBehaviour
 
     private void Start()
     {
-        fishCount = 0;
+        fishCount = SettingsMenu.fishTotal;
+        spawnRate = SettingsMenu.spawnRate;
         endtime = Time.time;
         timeUp = false;
         spawnFish = true;
@@ -25,7 +26,7 @@ public class FishGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fishCount < FishTotal) {
+        if (fishCount < FishTotal && !UI_Controller.gamePaused) {
             SpawnFish();
         }
     }

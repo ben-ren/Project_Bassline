@@ -21,7 +21,9 @@ public class FretSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UseMouse();
+        if (!UI_Controller.gamePaused) {
+            UseMouse();
+        }
     }
 
     void UseButtons()

@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SetAudioVolume();
         int pressedButton = CheckButtonPressed();
 
         PitchShift();
@@ -31,7 +32,6 @@ public class AudioManager : MonoBehaviour
         {
             PlayAudio(pressedButton);
         }
-        
     }
 
     //Selects the AudioClip index based on the inputString
@@ -72,5 +72,10 @@ public class AudioManager : MonoBehaviour
         //https://discussions.unity.com/t/pitch-in-unity/22657/6
         int fretIndex = fret.GetFretIndex();
         audioSource.pitch = Mathf.Pow(scale, fretIndex);
+    }
+
+    private void SetAudioVolume()
+    {
+        audioSource.volume = SettingsMenu.volume;
     }
 }
